@@ -19,7 +19,7 @@ createApp({
         return {
 
             activeImage: 0,
-            slides:[
+            slides: [
                 {
                     image: './assets/img/01.webp',
                     title: 'Marvel\'s Spiderman Miles Morale',
@@ -43,6 +43,23 @@ createApp({
                 }
             ]
         }
+    },
+    methods: {
+        prev() {
+            // console.log('prev button');
+            this.activeImage--
+            if (this.activeImage < 0) {
+                this.activeImage = this.slides.length - 1;
+            }
+        },
+        next() {
+            // console.log('next button');
+            this.activeImage++
+            if (this.activeImage > this.slides.length - 1) {
+                this.activeImage = 0;
+            }
+        },
     }
+
 }).mount('#app')
 
